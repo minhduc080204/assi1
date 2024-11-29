@@ -48,4 +48,15 @@ public class SinhVienDTO {
     public void setDiaChi(String diaChi) {
         this.diaChi = diaChi;
     }
+
+    @Override
+    public String toString() {
+        return "SinhVienDTO{" +
+                "soCMND='" + soCMND + '\'' +
+                ", hoTen='" + hoTen + '\'' +
+                ", email='" + email + '\'' +
+                ", soDT='" + soDT + '\'' +
+                ", diaChi='" + diaChi + '\'' +
+                '}';
+    }
 }

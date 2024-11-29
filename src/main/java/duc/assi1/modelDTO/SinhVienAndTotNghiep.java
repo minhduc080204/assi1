@@ -26,4 +26,12 @@ public class SinhVienAndTotNghiep {
     public void setTotNghiepDTO(TotNghiepDTO totNghiepDTO) {
         this.totNghiepDTO = totNghiepDTO;
     }
+
+    @Override
+    public String toString() {
+        return "SinhVienAndTotNghiep{" +
+                "sinhVienDTO=" + sinhVienDTO +
+                ", totNghiepDTO=" + totNghiepDTO +
+                '}';
+    }
 }

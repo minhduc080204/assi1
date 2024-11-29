@@ -4,8 +4,8 @@
 <div class="w-25">
     <h3>Sinh vien khai bao</h3>
 
-    <h5>Thong tin Sinh Vien</h5>
-    <form:form method="POST" modelAttribute="sinhVienAndTotNghiep" action="/login" class=" d-flex flex-column gap-3">
+    <form:form method="post" modelAttribute="sinhVienAndTotNghiep" action="/sinhvienkhaibao" class=" d-flex flex-column gap-3">
+        <h5>Thong tin Sinh Vien</h5>
         <div>
             <label for="soCMND">So CMND</label>
             <form:input path="sinhVienDTO.soCMND" class="form-control" placeholder="Enter a valid So CMND" required="true"
@@ -32,12 +32,12 @@
                         required="true" id="diaChi"/>
         </div>
 
-    <h5>Thong tin TotNghiep</h5>
+        <h5>Thong tin TotNghiep</h5>
         <div>
             <label>Ma Truong</label>
             <form:select path="totNghiepDTO.maTruong" class="form-select" aria-label="Default select example">
                 <c:forEach items="${truongList}" var="truong">
-                    <form:option value="truong.maTruong" selected="true">${truong.tenTruong}</form:option>
+                    <form:option value="${truong.maTruong}" selected="true">${truong.tenTruong}</form:option>
                 </c:forEach>
             </form:select>
         </div>
@@ -45,7 +45,7 @@
             <label>Ma Nganh</label>
             <form:select path="totNghiepDTO.maNganh" class="form-select" aria-label="Default select example">
                 <c:forEach items="${nganhList}" var="nganh">
-                    <form:option value="nganh.maNganh" selected="true">${nganh.tenNganh}</form:option>
+                    <form:option value="${nganh.maNganh}" selected="true">${nganh.tenNganh}</form:option>
                 </c:forEach>
             </form:select>
         </div>
@@ -65,6 +65,6 @@
                         required="true" id="loaiTN"/>
         </div>
 
-        <button type="submit" class="btn btn-success">Login</button>
+        <button type="submit" class="btn btn-success">Khai Bao</button>
     </form:form>
 </div>

@@ -1,16 +1,13 @@
 package duc.assi1.modelDTO;
 
-import duc.assi1.model.Nganh;
-import duc.assi1.model.SinhVien;
-import duc.assi1.model.Truong;
-import jakarta.persistence.*;
+import java.time.LocalDate;
 
 public class TotNghiepDTO {
     private String soCMND;
     private Long maTruong;
     private Long maNganh;
     private String heTN;
-    private String ngayTN;
+    private LocalDate ngayTN;
     private String loaiTN;
 
     public TotNghiepDTO(){}
@@ -47,11 +44,11 @@ public class TotNghiepDTO {
         this.heTN = heTN;
     }
 
-    public String getNgayTN() {
+    public LocalDate getNgayTN() {
         return ngayTN;
     }
 
-    public void setNgayTN(String ngayTN) {
+    public void setNgayTN(LocalDate ngayTN) {
         this.ngayTN = ngayTN;
     }
 
@@ -61,5 +58,17 @@ public class TotNghiepDTO {
 
     public void setLoaiTN(String loaiTN) {
         this.loaiTN = loaiTN;
+    }
+
+    @Override
+    public String toString() {
+        return "TotNghiepDTO{" +
+                "soCMND='" + soCMND + '\'' +
+                ", maTruong=" + maTruong +
+                ", maNganh=" + maNganh +
+                ", heTN='" + heTN + '\'' +
+                ", ngayTN='" + ngayTN + '\'' +
+                ", loaiTN='" + loaiTN + '\'' +
+                '}';
     }
 }

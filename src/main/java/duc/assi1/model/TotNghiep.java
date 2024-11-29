@@ -3,6 +3,8 @@ package duc.assi1.model;
 import duc.assi1.idClass.TotNghiepId;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Table
 @Entity
 @IdClass(TotNghiepId.class)
@@ -27,7 +29,7 @@ public class TotNghiep {
     private String heTN;
 
     @Column
-    private String ngayTN;
+    private LocalDate ngayTN;
 
     @Column
     private String loaiTN;
@@ -64,11 +66,11 @@ public class TotNghiep {
         this.heTN = heTN;
     }
 
-    public String getNgayTN() {
+    public LocalDate getNgayTN() {
         return ngayTN;
     }
 
-    public void setNgayTN(String ngayTN) {
+    public void setNgayTN(LocalDate ngayTN) {
         this.ngayTN = ngayTN;
     }
 

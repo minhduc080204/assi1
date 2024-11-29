@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class SinhVienController {
@@ -28,5 +30,12 @@ public class SinhVienController {
         model.addAttribute("truongList", truongService.getAllTruong());
         model.addAttribute("nganhList", nganhService.getAllNganh());
         return "sinhVienKhaiBao";
+    }
+
+    @PostMapping("sinhvienkhaibao")
+    public String doSinhVienKhaiBao(@ModelAttribute("sinhVienAndTotNghiep") SinhVienAndTotNghiep sinhVienAndTotNghiep) {
+        System.out.println(sinhVienAndTotNghiep);
+        sinhVienService.insertSinhVienAndTotNghiep(sinhVienAndTotNghiep);
+        return "redirect:/sinhvienkhaibao";
     }
 }
