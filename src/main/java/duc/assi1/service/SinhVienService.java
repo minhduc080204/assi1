@@ -1,6 +1,5 @@
 package duc.assi1.service;
 
-import duc.assi1.idClass.TotNghiepId;
 import duc.assi1.model.SinhVien;
 import duc.assi1.model.TotNghiep;
 import duc.assi1.modelDTO.SinhVienAndTotNghiep;
@@ -11,7 +10,12 @@ import duc.assi1.repository.SinhVienRepository;
 import duc.assi1.repository.TotNghiepRepository;
 import duc.assi1.repository.TruongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SinhVienService {
@@ -27,12 +31,51 @@ public class SinhVienService {
     public boolean insertSinhVienAndTotNghiep(SinhVienAndTotNghiep sinhVienAndTotNghiep){
         SinhVien sinhVien = dtoToSinhVien(sinhVienAndTotNghiep.getSinhVienDTO());
         sinhVienRepository.save(sinhVien);
-        System.out.println("ok1");
+
         sinhVienAndTotNghiep.getTotNghiepDTO().setSoCMND(sinhVien.getSoCMND());
         TotNghiep totNghiep = dtoToTotNghiep(sinhVienAndTotNghiep.getTotNghiepDTO());
         totNghiepRepository.save(totNghiep);
-        System.out.println("ok2");
         return true;
+    }
+
+    public List<SinhVienDTO> timKiemSinhVien(SinhVienDTO sinhVienDTO){
+        Specification<SinhVien> specification = Specification.where(null);
+
+        if (sinhVienDTO.getSoCMND() != null && !sinhVienDTO.getSoCMND().isEmpty()) {
+            specification = specification.and((root, query, criteriaBuilder) ->
+                    criteriaBuilder.like(root.get("soCMND"), "%" + sinhVienDTO.getSoCMND() + "%")
+            );
+        }
+
+        if (sinhVienDTO.getHoTen() != null && !sinhVienDTO.getHoTen().isEmpty()) {
+            specification = specification.and((root, query, criteriaBuilder) ->
+                    criteriaBuilder.equal(root.get("hoTen"), sinhVienDTO.getHoTen())
+            );
+        }
+
+        if (sinhVienDTO.getEmail() != null && !sinhVienDTO.getEmail().isEmpty()) {
+            specification = specification.and((root, query, criteriaBuilder) ->
+                    criteriaBuilder.equal(root.get("email"), sinhVienDTO.getEmail())
+            );
+        }
+
+        if (sinhVienDTO.getDiaChi() != null && !sinhVienDTO.getDiaChi().isEmpty()) {
+            specification = specification.and((root, query, criteriaBuilder) ->
+                    criteriaBuilder.equal(root.get("diaChi"), sinhVienDTO.getDiaChi())
+            );
+        }
+
+        return sinhVienRepository.findAll(specification).stream()
+                .map(SinhVienDTO::new)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    public SinhVienDTO getSinhVien(String soCMND){
+        SinhVien sinhVien = sinhVienRepository.findById(soCMND).orElse(null);
+        if(sinhVien==null){
+            return null;
+        }
+        return new SinhVienDTO(sinhVien);
     }
 
     private SinhVien dtoToSinhVien(SinhVienDTO sinhVienDTO){

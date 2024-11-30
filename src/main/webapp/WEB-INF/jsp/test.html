@@ -11,74 +11,35 @@
 </head>
 <body>
 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<div class="w-25">
-    <h3>Sinh vien khai bao</h3>
-
-    <h5>Thong tin Sinh Vien</h5>
-    <form:form method="POST" modelAttribute="user" action="/login" class=" d-flex flex-column gap-3">
+<div>
+        <h5>Thong tin Sinh Vien</h5>
+    <form class="d-flex gap-2">
         <div>
             <label for="soCMND">So CMND</label>
-            <form:input path="soCMND" class="form-control" placeholder="Enter a valid So CMND" required="true"
+            <form:input path="sinhVienDTO.soCMND" class="form-control" placeholder="Enter a valid So CMND" required="true"
                         id="soCMND"/>
         </div>
         <div>
             <label for="hoTen">Ho Ten</label>
-            <form:input path="hoTen" class="form-control" placeholder="Enter Ho Ten"
+            <form:input path="sinhVienDTO.hoTen" class="form-control" placeholder="Enter Ho Ten"
                         required="true" id="hoTen"/>
         </div>
         <div>
             <label for="email">Email</label>
-            <form:input path="email" class="form-control" placeholder="Enter Email"
-                         type="email" required="true" id="email"/>
+            <form:input path="sinhVienDTO.email" class="form-control" placeholder="Enter Email"
+                        type="email" required="true" id="email"/>
         </div>
         <div>
             <label for="soDT">So DT</label>
-            <form:input path="soDT" class="form-control" placeholder="Enter So DT"
+            <form:input path="sinhVienDTO.soDT" class="form-control" placeholder="Enter So DT"
                         required="true" id="soDT"/>
         </div>
         <div>
             <label for="diaChi">Dia Chi</label>
-            <form:input path="diaChi" class="form-control" placeholder="Enter Dia Chi"
+            <form:input path="sinhVienDTO.diaChi" class="form-control" placeholder="Enter Dia Chi"
                         required="true" id="diaChi"/>
         </div>
-
-    </form:form>
-
-    <h5>Thong tin TotNghiep</h5>
-    <form:form method="POST" modelAttribute="user" action="/login" class=" d-flex flex-column gap-3">
-        <div>
-            <label>Ma Truong</label>
-            <form:select path="maTruong" class="form-select" aria-label="Default select example">
-                <form:option value="Draft" selected="true">Draft</form:option>
-                <form:option value="Published">Published</form:option>
-            </form:select>
-        </div>
-        <div>
-            <label>Ma Ngang</label>
-            <form:select path="maNganh" class="form-select" aria-label="Default select example">
-                <form:option value="Draft" selected="true">Draft</form:option>
-                <form:option value="Published">Published</form:option>
-            </form:select>
-        </div>
-        <div>
-            <label for="heTN">He TN</label>
-            <form:input path="heTN" class="form-control" placeholder="Enter He TN"
-                        required="true" id="heTN"/>
-        </div>
-        <div>
-            <label for="ngayTN">Ngay TN</label>
-            <form:input path="ngayTN" class="form-control" placeholder="Enter Ngay TN"
-                        type="date" required="true" id="ngayTN"/>
-        </div>
-        <div>
-            <label for="loaiTN">Loai TN</label>
-            <form:input path="loaiTN" class="form-control" placeholder="Enter Loai TN"
-                        required="true" id="loaiTN"/>
-        </div>
-
-        <button type="submit" class="btn btn-success">Login</button>
-    </form:form>
+    </form>
 </div>
 
 <script src="../../../resources/static/js/bootstrap.min.js"></script>

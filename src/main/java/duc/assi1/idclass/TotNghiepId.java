@@ -1,4 +1,4 @@
-package duc.assi1.idClass;
+package duc.assi1.idclass;
 
 import java.io.Serializable;
 

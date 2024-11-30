@@ -1,5 +1,7 @@
 package duc.assi1.modelDTO;
 
+import duc.assi1.model.TotNghiep;
+
 import java.time.LocalDate;
 
 public class TotNghiepDTO {
@@ -11,6 +13,15 @@ public class TotNghiepDTO {
     private String loaiTN;
 
     public TotNghiepDTO(){}
+
+    public TotNghiepDTO(TotNghiep totNghiep) {
+        this.soCMND = totNghiep.getSinhVien().getSoCMND();
+        this.maTruong = totNghiep.getTruong().getMaTruong();
+        this.maNganh = totNghiep.getNganh().getMaNganh();
+        this.heTN = totNghiep.getHeTN();
+        this.ngayTN = totNghiep.getNgayTN();
+        this.loaiTN = totNghiep.getLoaiTN();
+    }
 
     public String getSoCMND() {
         return soCMND;

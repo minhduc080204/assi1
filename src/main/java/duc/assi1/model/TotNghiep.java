@@ -1,6 +1,6 @@
 package duc.assi1.model;
 
-import duc.assi1.idClass.TotNghiepId;
+import duc.assi1.idclass.TotNghiepId;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

@@ -1,5 +1,7 @@
 package duc.assi1.modelDTO;
 
+import duc.assi1.model.CongViec;
+
 public class CongViecDTO {
     private String soCMND;
     private String ngayVaoCongTy;
@@ -10,6 +12,16 @@ public class CongViecDTO {
     private String thoiGianLamViec;
 
     public CongViecDTO(){}
+
+    public CongViecDTO(CongViec congViec) {
+        this.soCMND = congViec.getSinhVien().getSoCMND();
+        this.ngayVaoCongTy = congViec.getNgayVaoCongTy();
+        this.maNganh = congViec.getNganh().getMaNganh();
+        this.tenCongViec = congViec.getTenCongViec();
+        this.tenCongTy = congViec.getTenCongTy();
+        this.diaChiCongTy = congViec.getDiaChiCongTy();
+        this.thoiGianLamViec = congViec.getThoiGianLamViec();
+    }
 
     public String getSoCMND() {
         return soCMND;

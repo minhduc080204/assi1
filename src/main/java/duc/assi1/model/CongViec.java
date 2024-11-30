@@ -1,7 +1,6 @@
 package duc.assi1.model;
 
-import duc.assi1.idClass.CongViecId;
-import duc.assi1.idClass.TotNghiepId;
+import duc.assi1.idclass.CongViecId;
 import jakarta.persistence.*;
 
 @Table

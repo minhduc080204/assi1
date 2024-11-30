@@ -1,9 +1,9 @@
 package duc.assi1.service;
 
 import duc.assi1.model.SinhVien;
-import duc.assi1.modelDTO.TotNghiepDTO;
+import duc.assi1.modelDTO.CongViecDTO;
+import duc.assi1.repository.CongViecRepository;
 import duc.assi1.repository.SinhVienRepository;
-import duc.assi1.repository.TotNghiepRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,18 +12,18 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class TotNghiepService {
+public class CongViecService {
     @Autowired
-    TotNghiepRepository totNghiepRepository;
+    private CongViecRepository congViecRepository;
 
     @Autowired
     SinhVienRepository sinhVienRepository;
 
-    public List<TotNghiepDTO> getTotNghiepBySoCMND(String soCMND){
+    public List<CongViecDTO> getCongViecBySoCMND(String soCMND){
         SinhVien sinhVien = sinhVienRepository.getReferenceById(soCMND);
 
-        return totNghiepRepository.findAllBySinhVien(sinhVien).stream()
-                .map(TotNghiepDTO::new)
+        return congViecRepository.findAllBySinhVien(sinhVien).stream()
+                .map(CongViecDTO::new)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 }

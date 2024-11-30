@@ -1,4 +1,4 @@
-package duc.assi1.idClass;
+package duc.assi1.idclass;
 
 import duc.assi1.model.SinhVien;
 

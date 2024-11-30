@@ -1,5 +1,7 @@
 package duc.assi1.modelDTO;
 
+import duc.assi1.model.SinhVien;
+
 public class SinhVienDTO {
     private String soCMND;
     private String hoTen;
@@ -8,6 +10,14 @@ public class SinhVienDTO {
     private String diaChi;
 
     public SinhVienDTO(){}
+
+    public SinhVienDTO(SinhVien sinhVien) {
+        this.soCMND = sinhVien.getSoCMND();
+        this.hoTen = sinhVien.getHoTen();
+        this.email = sinhVien.getEmail();
+        this.soDT = sinhVien.getSoDT();
+        this.diaChi = sinhVien.getDiaChi();
+    }
 
     public String getSoCMND() {
         return soCMND;
